@@ -1,0 +1,91 @@
+@font-face {
+  font-family: 'digital';
+  src: url('fonts/enhanced_dot_digital_7/enhanced_dot_digital-7.ttf'); 
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ddd;
+  position: relative;
+}
+.clock {
+  background-color: bisque;
+  border: 1px solid black;
+  border-radius: .5em;
+  width: 20em;
+  height: 5em;
+  position: absolute;
+  left: 3em;
+  top: 5em;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  width: 95%;
+  height: 3em;
+  margin-top: .4em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.clock-pairs {
+  position: relative; 
+  width: 2em;
+  height: 1.25em;
+  padding-left: .275em;
+  padding-top: 2px; 
+  display: flex;
+  align-items: center;
+  font-family: digital;
+  font-size: 2em;
+  font-weight: bold;
+  color: yellowgreen;
+  letter-spacing: .4em;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.invisible-left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 49%;
+  height: 100%;
+  background-color: #222;
+  border: 1px solid bisque;
+  border-radius: 8px;
+  z-index: -2;
+}
+.invisible-middle {
+  position: absolute;
+  left: 1em;
+  top: 0;
+  width: 0.95em;
+  height: 100%;
+  background-color: #222;
+  border: 1px solid bisque;
+  border-radius: 8px;
+  z-index: -2;
+}
+.invisible-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 48%;
+  height: 100%;
+  background-color: #222;
+  border: 1px solid bisque;
+  border-radius: 8px;
+  z-index: -2;
+}
+.line {
+  color: yellowgreen;
+  font: 400 1em verdana;
+}
