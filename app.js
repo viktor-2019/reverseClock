@@ -1,5 +1,16 @@
+
+let timeTo = prompt('Input a date in next format \"year, month, day, hours, minutes, seconds\" for example: 2023, 12, 31, 23, 59,59');
+const finishDate = timeTo.split(',').map(el => +(el.trim()));
+
+if ((Date.now() - new Date(...finishDate)) >= 0 ){
+  console.log(Date.now, new Date(...finishDate));
+  alert('Date is in the Past');
+  location.reload();
+}
+
 const clockPairs = document.querySelectorAll('.clock-pairs')
 const clock = document.querySelector('.clock');
+const restart = clock.querySelector('.btn-restart');
 const container = document.querySelector('.container');
 const days = document.getElementById('days');
 const middle = document.createElement('div');
@@ -38,6 +49,7 @@ function start(ar) {
   }, 1000); 
   return clearInterval(start);
 };  
+
 function daysMore100() {
   clock.style.width="21em";
   days.style.width ="3em";
@@ -54,4 +66,11 @@ function daysLess100() {
   invRight.style.width = "49%"; 
 }
 
-window.onload = start([2022,12,31,23,59,59]);
+function restartHandler(e) {
+  e.preventDefault();
+  clearInterval(start);
+  location.reload();
+}
+restart.addEventListener('click', restartHandler);
+
+window.onload = start(finishDate);

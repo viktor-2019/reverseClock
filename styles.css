@@ -86,6 +86,22 @@ body {
   z-index: -2;
 }
 .line {
-  color: yellowgreen;
-  font: 400 1em verdana;
+  width: 95%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: red;
+  font: 400 .75em verdana;
+}
+.line-items {
+  padding-left: 1.1em;
+}
+.btn-restart {
+  color: rgb(122, 178, 11);
+  font: 700 .75em;
+  width: 8em;
+  height: 4em;
+  background-color: #ddd;
+  border: 1px solid #bbb;
+  border-radius: 1em;
 }
