@@ -1,8 +1,12 @@
 
 let timeTo = prompt('Input a date in next format \"year, month, day, hours, minutes, seconds\" for example: 2023, 12, 31, 23, 59,59');
-const finishDate = timeTo.split(',').map(el => +(el.trim()));
-
-if ((Date.now() - new Date(...finishDate)) >= 0 ){
+let finishDate = timeTo.split(',').map(el => +(el.trim()));
+if (finishDate.length >= 2) {
+  finishDate[1] -= 1;
+} else {
+  finishDate = [finishDate[0].toString()];
+}
+if ((Date.now() - new Date(...finishDate).getTime()) >= 0 ){
   console.log(Date.now, new Date(...finishDate));
   alert('Date is in the Past');
   location.reload();
@@ -21,6 +25,7 @@ middle.classList.add('invisible-middle');
 function restTimeTo(finTime = [2022,12,19,00,00,00]) {
     let date = new Date();
     let diff = Math.floor((new Date(...finTime) - date)/1000);
+  
     if (diff <= 0) {
       clearInterval(start);
       return;
