@@ -22,11 +22,12 @@ const invLeft =  days.querySelector('.invisible-left');
 const invRight = days.querySelector('.invisible-right');
 middle.classList.add('invisible-middle');
 
-function restTimeTo(finTime = [2022,12,19,00,00,00]) {
+function restTimeTo(finTime = [2023,12,19,00,00,00]) {
     let date = new Date();
     let diff = Math.ceil((new Date(...finTime) - date)/1000);
   
-    if (diff <= 0) {
+    if (diff < 0) {
+
       clearInterval(start);
       return;
     }
@@ -41,8 +42,15 @@ function restTimeTo(finTime = [2022,12,19,00,00,00]) {
 }
 
 function start(ar) {  
-  setInterval(() => {
+  const go = setInterval(() => {
     let text = restTimeTo(ar);
+    if (!text) {
+      console.log('Clock is over');
+      const audio = new Audio;
+      audio.src = 'audio.mp3';
+      audio.autoplay = true; 
+      return clearInterval(go)
+    }
     if (parseInt(text[0]) > 99) {
       daysMore100();
     } else if (text[0] == 99) {
@@ -52,7 +60,7 @@ function start(ar) {
       div.prepend(text[i]);
     });
   }, 1000); 
-  return clearInterval(start);
+  return 
 };  
 
 function daysMore100() {
