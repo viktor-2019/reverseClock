@@ -45,7 +45,7 @@ function start(ar) {
   const go = setInterval(() => {
     let text = restTimeTo(ar);
     if (!text) {
-      console.log('Clock is over');
+      // console.log('Clock is over');
       const audio = new Audio;
       audio.src = 'audio.mp3';
       audio.autoplay = true; 
