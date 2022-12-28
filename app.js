@@ -24,7 +24,7 @@ middle.classList.add('invisible-middle');
 
 function restTimeTo(finTime = [2022,12,19,00,00,00]) {
     let date = new Date();
-    let diff = Math.floor((new Date(...finTime) - date)/1000);
+    let diff = Math.ceil((new Date(...finTime) - date)/1000);
   
     if (diff <= 0) {
       clearInterval(start);
